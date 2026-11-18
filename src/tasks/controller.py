@@ -28,7 +28,7 @@ def update_task(task_id: int, body: TaskSchema, db: Session) -> TaskModel:
     task_to_update = db.get(TaskModel, task_id)
     if not task_to_update:
         raise HTTPException(status_code=404, detail="Task not found")
-
+# update
     update_data = body.model_dump()
     for key, value in update_data.items():
         setattr(task_to_update, key, value)
